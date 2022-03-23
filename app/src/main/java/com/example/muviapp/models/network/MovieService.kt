@@ -18,11 +18,11 @@ class MovieService {
         .create(MovieApi::class.java)
 
 
-    fun getPopularMovies(): Observable<RandomMovies.Movies> {
+    fun getPopularMovies(page:Int): Observable<RandomMovies.Movies> {
         return api.getMovies(
             Constants.API_KEY_VALUE,
             Constants.LANGUAGE_VALUE,
-            Constants.PAGE_VALUE
+            page
         )
     }
 }
