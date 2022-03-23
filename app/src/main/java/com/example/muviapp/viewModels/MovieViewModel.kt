@@ -17,9 +17,9 @@ class MovieViewModel:ViewModel() {
 
     val movieResponse=MutableLiveData<RandomMovies.Movies>()
 
-    fun getMoviesFromApi(){
+    fun getMoviesFromApi(page:Int){
         compositeDisposable.add(
-            movieService.getPopularMovies()
+            movieService.getPopularMovies(page)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe ({ response->getObserver(response as RandomMovies.Movies)},
